@@ -29,4 +29,4 @@ jobs:
         context: ./Part3/3.1/
         file: ./Part3/3.1/Dockerfile
         push: true
-        tags: devopsdockeruh/coursepage:latest
+        tags: hei
