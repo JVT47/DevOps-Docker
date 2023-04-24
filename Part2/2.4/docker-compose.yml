@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  front:
+    build: "../../part1/1.14/front/"
+    container_name: frontend
+    ports:
+      - "127.0.0.1:5000:5000"
+  
+  back: 
+    build: "../../part1/1.14/back/"
+    container_name: backend
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      - REDIS_HOST=redis-database
+  
+  redis:
+    image: redis
+    container_name: redis-database
+    ports:
+      - "127.0.0.1:6379:6379"

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fibonacci:
+    build: .
+    container_name: fibonacci
+#    command: tail -F anything 
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 127.0.0.1:8000:8000
