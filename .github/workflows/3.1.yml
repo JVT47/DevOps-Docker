@@ -26,7 +26,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
-        context: ./part3/3.1/
-        file: ./part3/3.1/Dockerfile
+        context: ./Part3/3.1/
+        file: ./Part3/3.1/Dockerfile
         push: true
         tags: devopsdockeruh/coursepage:latest
