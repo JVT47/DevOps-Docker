@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  back:
+    build: .
+    container_name: backend
+    ports:
+      - 127.0.0.1:8080:8080
+#    command: tail -F anything

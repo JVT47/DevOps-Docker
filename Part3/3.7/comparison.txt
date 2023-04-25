@@ -1,0 +1,7 @@
+BEFORE:
+    Front: 1.28 GB
+    Back: 1.03 GB
+
+AFTER:
+    Front: 482 MB
+    Back: 498 MB

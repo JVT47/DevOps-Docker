@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  front:
+    build: "./app/front/"
+    container_name: frontend
+  
+  back: 
+    build: "./app/back/"
+    container_name: backend
+    environment:
+      - REDIS_HOST=redis-database
+      - POSTGRES_HOST=postgres-db
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DATABASE=postgres
+      - REQUEST_ORIGIN=http://localhost
+  
+  redis:
+    image: redis
+    restart: unless-stopped
+    container_name: redis-database
+    ports:
+      - "127.0.0.1:6379:6379"
+    
+  postgres: 
+    image: postgres
+    restart: unless-stopped
+    container_name: postgres-db
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - type: bind
+        source: database
+        target: /var/lib/postgresql/data
+
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    container_name: nginx-container
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
